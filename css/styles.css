@@ -1,0 +1,159 @@
+
+html{
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+  font-family: 'PT Sans' , 'Arial' ,sans-serif;
+  background-color:#2576b1;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+:root{
+  --img-cover:230px;
+  --img-height:350px;
+}
+
+.container{
+  max-width: 1300px;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movies-list{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  
+  margin-bottom: 200px;
+  padding: 0;
+}
+
+.movies-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.movies-item + .movies-item{
+  margin-left: 60px;
+}
+
+.movie-cover{
+  height: var(--img-height);
+  width: var(--img-cover);
+  object-fit: cover;
+  z-index: 1;
+}
+
+
+.movies-item-infos{
+  width: calc( var(--img-cover) + 40px);
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  padding: var(--img-height) 20px 0 20px;
+  z-index: -1;
+  transform: translateX(-50%) scale(0)  ;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.2s cubic-bezier(0.1,1.1,1,1.15) transform;
+}
+
+.movies-item:hover .movies-item-infos{
+  transform:  translateX(-50%) scale(1);
+}
+
+.movies-info-heading{
+  width: 100%;
+  font-weight: bold;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.movies-definition{
+  color: #ccc;
+  text-align: center;
+  margin-top: 9px;
+  margin-bottom: 0;
+  line-height: 1;
+  font-size: 15px;
+}
+
+.movie_new-price{
+  color: lightgreen;
+  font-size: 22px;
+  margin-top: 20px;
+  line-height: 1.2;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.movie_old-price{
+  font-size: 18px;
+  color: #ccc;
+  margin-top: 3px;
+  margin-bottom: 0;
+  text-decoration: line-through;
+}
+
+.buy-link{
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 17px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  text-overflow: ellipsis;
+  background-color: #444;
+  width: calc( var(--img-cover) + 40px);
+  transition: all ease 0.5s;
+}
+
+.buy-link:hover{
+  background-color: lightgreen;
+  color: white;
+}
+
+.buy-link:active{
+  opacity: 0.5s;
+}
